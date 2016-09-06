@@ -1,0 +1,29 @@
+<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<h1>User Profile</h1>
+			<hr>
+			{{# if orders.length }}
+				<h3>Orders</h3>
+				{{# each orders}}
+					<div class="panel panel-default">
+					  <div class="panel-body">
+					    <ul class="list-group">
+					    {{# each this.items}}
+						  <li class="list-group-item">
+						    <span class="badge"><i style="font-size:10px" class="fa">&#xf156;</i>  {{this.price}} </span>
+						    {{ this.item.title }} | {{ this.qty }}
+						  </li>
+						 {{/each}}
+						</ul>
+					  </div>
+					  <div class="panel-footer">
+					  <i style="font-size:18px" class="fa">&#xf156;</i>
+					  	<strong>{{this.cart.totalPrice}} </strong>
+					  </div>
+					</div>
+				{{/each}}
+			{{ else }}
+				<strong>No order information found</strong>
+			{{/if}}
+		</div>
+</div>
